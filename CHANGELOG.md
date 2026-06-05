@@ -3,6 +3,15 @@
 Bu projedeki önemli değişiklikler bu dosyada belgelenir.
 Sürümleme [Semantic Versioning](https://semver.org/lang/tr/) yaklaşımını izler.
 
+## [1.4.4] - 2026-06-05
+
+### Düzeltildi
+- **Eski `update.php`'de boş sayfa.** 1.4.2→1.4.3 geçişinde, eski sürümün işlem
+  sonrası `update.php`'ye yönlendirmesi nedeniyle köprü sayfası bazı sunucularda
+  boş kalabiliyordu. `update.php` artık kurşun geçirmez: ölümcül hata olsa bile
+  görünür kalır, otomatik yönlendirmenin yanında tıklanabilir "Ayarlar'a git"
+  bağlantısı sunar ve kalıcı önbelleğe takılmamak için 302 kullanır.
+
 ## [1.4.3] - 2026-06-05
 
 ### Değişti
@@ -114,6 +123,7 @@ Sürümleme [Semantic Versioning](https://semver.org/lang/tr/) yaklaşımını i
 - İlk yayın temeli: ISO 27001 uyumlu Zimmet Teslim ve Teslim-Tesellüm tutanağı
   üretimi, tekil/toplu üretim, kurum bazlı şablon, arşivleme ve denetim izi.
 
+[1.4.4]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.4
 [1.4.3]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.3
 [1.4.2]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.2
 [1.4.1]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.1
