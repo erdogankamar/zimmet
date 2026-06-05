@@ -636,24 +636,29 @@ class PluginZimmetPdf extends TCPDF
         $gap = 6;
         $bw = ($W - $gap) / 2;
 
-        $this->signBox(
-            $x,
-            $y,
-            $bw,
-            $h,
-            'TESLİM EDEN',
-            $this->dec($data['tech_name'] ?? ''),
-            $this->dec($data['tech_title'] ?? '')
-        );
-        $this->signBox(
-            $x + $bw + $gap,
-            $y,
-            $bw,
-            $h,
-            'TESLİM ALAN',
-            $this->dec($data['fullname'] ?? ''),
-            $this->dec($data['job_title'] ?? '')
-        );
+        [$eden, $alan] = $this->signatoryRoles($data);
+
+        $this->signBox($x, $y, $bw, $h, 'TESLİM EDEN', $eden['name'], $eden['title']);
+        $this->signBox($x + $bw + $gap, $y, $bw, $h, 'TESLİM ALAN', $alan['name'], $alan['title']);
+    }
+
+    /**
+     * Belge tipine göre "Teslim Eden" ve "Teslim Alan" taraflarını döndürür.
+     *
+     * Zimmet: teknik personel teslim eder, personel teslim alır.
+     * Teslim-Tesellüm (iade): personel teslim eder, teknik personel teslim alır.
+     *
+     * @return array{0:array{name:string,title:string},1:array{name:string,title:string}}
+     */
+    private function signatoryRoles(array $data)
+    {
+        $tech = ['name' => $this->dec($data['tech_name'] ?? ''), 'title' => $this->dec($data['tech_title'] ?? '')];
+        $pers = ['name' => $this->dec($data['fullname'] ?? ''),  'title' => $this->dec($data['job_title'] ?? '')];
+
+        if (($data['doc_type'] ?? 'zimmet') === 'tesellum') {
+            return [$pers, $tech]; // eden = personel, alan = teknik personel
+        }
+        return [$tech, $pers];     // eden = teknik personel, alan = personel
     }
 
     private function signBox($x, $y, $w, $h, $title, $name, $jobTitle = '')
@@ -715,24 +720,10 @@ class PluginZimmetPdf extends TCPDF
         $gap = 6;
         $bw = ($W - $gap) / 2;
 
-        $this->initialBox(
-            $x,
-            $y,
-            $bw,
-            $h,
-            'TESLİM EDEN PARAF',
-            $this->dec($data['tech_name'] ?? ''),
-            $this->dec($data['tech_title'] ?? '')
-        );
-        $this->initialBox(
-            $x + $bw + $gap,
-            $y,
-            $bw,
-            $h,
-            'TESLİM ALAN PARAF',
-            $this->dec($data['fullname'] ?? ''),
-            $this->dec($data['job_title'] ?? '')
-        );
+        [$eden, $alan] = $this->signatoryRoles($data);
+
+        $this->initialBox($x, $y, $bw, $h, 'TESLİM EDEN PARAF', $eden['name'], $eden['title']);
+        $this->initialBox($x + $bw + $gap, $y, $bw, $h, 'TESLİM ALAN PARAF', $alan['name'], $alan['title']);
     }
 
     private function initialBox($x, $y, $w, $h, $title, $name, $jobTitle = '')

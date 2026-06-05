@@ -3,6 +3,16 @@
 Bu projedeki önemli değişiklikler bu dosyada belgelenir.
 Sürümleme [Semantic Versioning](https://semver.org/lang/tr/) yaklaşımını izler.
 
+## [1.4.10] - 2026-06-05
+
+### Düzeltildi
+- **Teslim-Tesellüm PDF imza/paraf kutuları.** Tesellüm (iade) belgesinde imza
+  rolleri gerçeğe uygun şekilde yer değiştirir: **personel "Teslim Eden"**,
+  **teknik personel "Teslim Alan"** olarak basılır (zimmet belgesinde eskisi
+  gibi tersi). Etiketler doğal sırada (Eden solda / Alan sağda) kalır; yalnızca
+  kişiler değişir. Hem ilk sayfa imza kutuları hem devam sayfası paraf kutuları
+  için geçerli. (1.4.9'daki form etiketi düzeltmesinin PDF karşılığı.)
+
 ## [1.4.9] - 2026-06-05
 
 ### Düzeltildi
@@ -164,6 +174,7 @@ Sürümleme [Semantic Versioning](https://semver.org/lang/tr/) yaklaşımını i
 - İlk yayın temeli: ISO 27001 uyumlu Zimmet Teslim ve Teslim-Tesellüm tutanağı
   üretimi, tekil/toplu üretim, kurum bazlı şablon, arşivleme ve denetim izi.
 
+[1.4.10]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.10
 [1.4.9]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.9
 [1.4.8]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.8
 [1.4.7]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.7

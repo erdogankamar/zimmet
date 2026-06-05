@@ -22,7 +22,7 @@ plugin projesini aynı bağlamla anlaması için kanonik başvuru dosyasıdır.
 - Kısa ad: `zimmet`
 - Geliştiren marka: `Artsution`
 - Lisans: `GPLv3+`
-- Güncel sürüm: `1.4.9`
+- Güncel sürüm: `1.4.10`
 - Sürümleme: Semantic Versioning (`MAJOR.MINOR.PATCH`)
 - Tag formatı: `vX.Y.Z`
 - Release asset adı: `zimmet.zip`
