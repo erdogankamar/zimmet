@@ -427,6 +427,10 @@ class PluginZimmetUpdate
                 }
             } elseif (!@copy($item->getPathname(), $target)) {
                 return false;
+            } elseif (substr($target, -4) === '.php' && function_exists('opcache_invalidate')) {
+                // Değiştirilen her PHP dosyasını anında geçersiz kıl (FPM'de
+                // global opcache_reset gecikebildiğinden bayat bytecode'u önler)
+                @opcache_invalidate($target, true);
             }
         }
         return true;

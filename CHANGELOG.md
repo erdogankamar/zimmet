@@ -3,6 +3,19 @@
 Bu projedeki önemli değişiklikler bu dosyada belgelenir.
 Sürümleme [Semantic Versioning](https://semver.org/lang/tr/) yaklaşımını izler.
 
+## [1.4.2] - 2026-06-05
+
+### Düzeltildi
+- **Güncelleme sonrası beyaz/boş sayfa (kalıcı çözüm):** Güncellemenin hemen
+  ardından dosya sürümü ile veritabanı sürümü arasındaki anlık geçiş + OPcache
+  nedeniyle GLPI eklentiyi kısa süre "yüklenmedi" sayıp eklenti sınıflarını
+  yüklemiyor, bu da Güncelleme Merkezi'nin "class not found" ile boş kalmasına
+  yol açıyordu. Artık `front/update.php` kendi sabit ve sınıflarını doğrudan
+  yükleyip her durumda render ediliyor; ölümcül bir hata olursa boş sayfa yerine
+  okunur bir hata mesajı gösteriliyor.
+- Değiştirilen her PHP dosyası için anlık `opcache_invalidate(force)` eklendi
+  (global `opcache_reset` FPM'de gecikebildiğinden bayat bytecode'u önler).
+
 ## [1.4.1] - 2026-06-05
 
 ### Değişti
@@ -89,6 +102,7 @@ Sürümleme [Semantic Versioning](https://semver.org/lang/tr/) yaklaşımını i
 - İlk yayın temeli: ISO 27001 uyumlu Zimmet Teslim ve Teslim-Tesellüm tutanağı
   üretimi, tekil/toplu üretim, kurum bazlı şablon, arşivleme ve denetim izi.
 
+[1.4.2]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.2
 [1.4.1]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.1
 [1.4.0]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.0
 [1.3.0]: https://github.com/erdogankamar/zimmet/releases/tag/v1.3.0

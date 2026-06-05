@@ -12,6 +12,42 @@
 
 include('../../../inc/includes.php');
 
+// -------------------------------------------------------------------------
+// Güncelleme sonrası boş (beyaz) sayfa korumasI
+// -------------------------------------------------------------------------
+// Güncelleme uygulandıktan hemen sonra, GLPI dosya sürümü ile veritabanı
+// sürümü arasındaki anlık geçiş + OPcache nedeniyle eklentiyi kısa süreliğine
+// "yüklenmedi" sayabilir; bu durumda eklenti sınıfları otomatik yüklenmez ve
+// bu sayfa "class not found" ile boş kalırdı. Aşağıda eklenti sabit ve
+// sınıflarını doğrudan yükleyerek sayfanın HER durumda render edilmesini
+// garanti ediyoruz.
+if (!defined('PLUGIN_ZIMMET_VERSION') && is_file(__DIR__ . '/../setup.php')) {
+    include_once __DIR__ . '/../setup.php';
+}
+foreach (glob(__DIR__ . '/../inc/*.class.php') ?: [] as $zimmetClassFile) {
+    require_once $zimmetClassFile;
+}
+
+// Beklenmedik bir ölümcül hata olursa boş sayfa yerine okunur bir mesaj göster
+// (bu sayfa yalnızca config yetkisi olan yöneticilere açıktır).
+register_shutdown_function(static function () {
+    $e = error_get_last();
+    if ($e && in_array($e['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR], true)) {
+        if (!headers_sent()) {
+            header('Content-Type: text/html; charset=UTF-8', true, 500);
+        }
+        echo "<div style='font-family:Arial,sans-serif;max-width:760px;margin:40px auto;"
+            . "padding:20px 24px;border:1px solid #e3b7b7;border-radius:10px;background:#fff6f6;color:#7a1f1f'>"
+            . "<h2 style='margin:0 0 8px'>Güncelleme sayfası yüklenemedi</h2>"
+            . "<p>İşlem büyük olasılıkla tamamlandı ancak sayfa render edilirken bir hata oluştu. "
+            . "Birkaç saniye bekleyip sayfayı yenileyin; sorun sürerse aşağıdaki teknik detayı paylaşın.</p>"
+            . "<pre style='white-space:pre-wrap;background:#fff;border:1px solid #eee;border-radius:6px;"
+            . "padding:10px;font-size:12px;color:#444'>"
+            . htmlspecialchars($e['message'] . "\n" . ($e['file'] ?? '') . ':' . ($e['line'] ?? ''), ENT_QUOTES, 'UTF-8')
+            . "</pre></div>";
+    }
+});
+
 Session::checkRight('plugin_zimmet_config', UPDATE);
 
 if (!headers_sent()) {
