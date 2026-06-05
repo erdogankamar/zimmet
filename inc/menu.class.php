@@ -57,8 +57,7 @@ class PluginZimmetMenu extends CommonGLPI
             'add'      => ['Yeni Tutanak', 'Personel seçip zimmet/iade tutanağı oluşturun', 'ti ti-file-plus'],
             'generate' => ['Toplu Üretim', 'Kurum/grup bazında çoklu tutanak üretin', 'ti ti-users-group'],
             'template' => ['Şablonlar', 'Kurum bazlı başlık, doküman no ve taahhüt metni', 'ti ti-template'],
-            'config'   => ['Ayarlar', 'Varlık türleri ve PDF yazı tipi', 'ti ti-settings'],
-            'update'   => ['Güncelleme Merkezi', 'Eklentiyi GitHub\'dan veya ZIP paketi ile güvenle güncelleyin', 'ti ti-cloud-upload'],
+            'config'   => ['Ayarlar', 'Varlık türleri, PDF yazı tipi ve güncelleme merkezi', 'ti ti-settings'],
         ];
         $head = $heads[$current]
             ?? ['Zimmet & Teslim-Tesellüm', 'Kurumsal zimmet yönetimi', 'ti ti-clipboard-check'];
@@ -95,12 +94,6 @@ class PluginZimmetMenu extends CommonGLPI
             'label' => 'Ayarlar',
             'icon'  => 'ti ti-settings',
             'url'   => $web . '/front/config.php',
-            'right' => ['plugin_zimmet_config', UPDATE],
-        ];
-        $tabs['update'] = [
-            'label' => 'Güncelle',
-            'icon'  => 'ti ti-package-import',
-            'url'   => $web . '/front/update.php',
             'right' => ['plugin_zimmet_config', UPDATE],
         ];
         // Sağ üstteki birincil eylem, bulunulan bölüme göre değişir

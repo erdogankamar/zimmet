@@ -3,6 +3,18 @@
 Bu projedeki önemli değişiklikler bu dosyada belgelenir.
 Sürümleme [Semantic Versioning](https://semver.org/lang/tr/) yaklaşımını izler.
 
+## [1.4.3] - 2026-06-05
+
+### Değişti
+- **Güncelleme Merkezi artık Ayarlar sayfasının altında.** Ayrı "Güncelle" menü
+  sekmesi kaldırıldı; GitHub/Manuel güncelleme ve yedekler Ayarlar (config)
+  sayfasına gömüldü. Eski `front/update.php` bağlantıları otomatik olarak
+  Ayarlar'a yönlendirilir (geriye dönük POST uyumluluğu korunur).
+
+### Eklendi
+- GitHub güncelleme kartına **"Yeniden denetle"** butonu (sürüm kontrolünü
+  yeniden çalıştırır).
+
 ## [1.4.2] - 2026-06-05
 
 ### Düzeltildi
@@ -102,6 +114,7 @@ Sürümleme [Semantic Versioning](https://semver.org/lang/tr/) yaklaşımını i
 - İlk yayın temeli: ISO 27001 uyumlu Zimmet Teslim ve Teslim-Tesellüm tutanağı
   üretimi, tekil/toplu üretim, kurum bazlı şablon, arşivleme ve denetim izi.
 
+[1.4.3]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.3
 [1.4.2]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.2
 [1.4.1]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.1
 [1.4.0]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.0
