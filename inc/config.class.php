@@ -105,31 +105,57 @@ class PluginZimmetConfig extends CommonDBTM
         ];
         $selected = array_filter(array_map('trim', explode(',', $asset_types)));
 
+        $icons = [
+            'Computer'   => 'ti ti-device-desktop',
+            'Monitor'    => 'ti ti-device-desktop-analytics',
+            'Peripheral' => 'ti ti-devices',
+            'Phone'      => 'ti ti-device-mobile',
+            'Printer'    => 'ti ti-printer',
+        ];
+
         echo "<form method='post' action='" . Plugin::getWebDir('zimmet') . "/front/config.php'>";
         echo "<div class='card'><div class='card-body'>";
-        echo "<h3>" . __('Zimmet configuration', 'zimmet') . "</h3>";
+        echo "<div class='zimmet-card-head'><i class='ti ti-settings'></i>"
+            . "<h3>" . __('Zimmet configuration', 'zimmet') . "</h3></div>";
 
-        echo "<table class='tab_cadre_fixe'>";
-        echo "<tr class='tab_bg_1'><td>" . __('Asset types to include', 'zimmet') . "</td><td>";
+        // --- Varlık türleri ---
+        echo "<div class='zimmet-config-row'>";
+        echo "<div class='zimmet-config-label'>";
+        echo "<span class='t'>" . __('Asset types to include', 'zimmet') . "</span>";
+        echo "<span class='h'>Personel seçildiğinde bu türlerdeki zimmetli cihazlar otomatik listelenir.</span>";
+        echo "</div>";
+        echo "<div class='zimmet-config-control'><div class='zimmet-checkgrid'>";
         foreach ($all_types as $type => $label) {
             $checked = in_array($type, $selected, true) ? 'checked' : '';
-            echo "<label class='d-block'><input type='checkbox' name='asset_types[]' value='"
-                . $type . "' $checked> " . $label . "</label>";
+            $icon = $icons[$type] ?? 'ti ti-box';
+            echo "<label class='zimmet-check'>"
+                . "<input type='checkbox' name='asset_types[]' value='" . $type . "' $checked>"
+                . "<i class='" . $icon . "'></i><span>" . htmlspecialchars($label) . "</span></label>";
         }
-        echo "</td></tr>";
+        echo "</div></div>";
+        echo "</div>";
 
-        echo "<tr class='tab_bg_1'><td>" . __('PDF font (Unicode/Turkish)', 'zimmet') . "</td><td>";
+        // --- PDF fontu ---
+        echo "<div class='zimmet-config-row'>";
+        echo "<div class='zimmet-config-label'>";
+        echo "<span class='t'>" . __('PDF font (Unicode/Turkish)', 'zimmet') . "</span>";
+        echo "<span class='h'>Türkçe karakterlerin sorunsuz görünmesi için Unicode yazı tipi.</span>";
+        echo "</div>";
+        echo "<div class='zimmet-config-control'>";
         Dropdown::showFromArray('pdf_font', [
             'dejavusans'      => 'DejaVu Sans (önerilen)',
             'dejavusansmono'  => 'DejaVu Sans Mono',
             'freesans'        => 'FreeSans',
-        ], ['value' => $pdf_font]);
-        echo "</td></tr>";
+        ], ['value' => $pdf_font, 'width' => '280px']);
+        echo "</div>";
+        echo "</div>";
 
-        echo "<tr class='tab_bg_2'><td colspan='2' class='center'>";
-        echo "<input type='submit' name='update' class='btn btn-primary' value='" . _sx('button', 'Save') . "'>";
-        echo "</td></tr>";
-        echo "</table>";
+        // --- Kaydet ---
+        echo "<div class='zimmet-config-foot'>";
+        echo "<button type='submit' name='update' class='btn btn-primary'>"
+            . "<i class='ti ti-device-floppy'></i> " . _sx('button', 'Save') . "</button>";
+        echo "</div>";
+
         echo "</div></div>";
         Html::closeForm();
 

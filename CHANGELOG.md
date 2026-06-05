@@ -3,6 +3,14 @@
 Bu projedeki önemli değişiklikler bu dosyada belgelenir.
 Sürümleme [Semantic Versioning](https://semver.org/lang/tr/) yaklaşımını izler.
 
+## [1.4.5] - 2026-06-05
+
+### Değişti
+- **Ayarlar formu kurumsal tasarıma uyarlandı.** Eski GLPI tablo görünümü
+  yerine; etiket + açıklama sütunlu satırlar, varlık türleri için ikonlu seçim
+  "chip"leri (seçiliyken vurgulanır) ve sağa hizalı kaydet butonu. Duyarlı
+  (responsive) düzen.
+
 ## [1.4.4] - 2026-06-05
 
 ### Düzeltildi
@@ -123,6 +131,7 @@ Sürümleme [Semantic Versioning](https://semver.org/lang/tr/) yaklaşımını i
 - İlk yayın temeli: ISO 27001 uyumlu Zimmet Teslim ve Teslim-Tesellüm tutanağı
   üretimi, tekil/toplu üretim, kurum bazlı şablon, arşivleme ve denetim izi.
 
+[1.4.5]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.5
 [1.4.4]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.4
 [1.4.3]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.3
 [1.4.2]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.2

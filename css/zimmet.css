@@ -672,6 +672,58 @@
 }
 .zimmet-update-metric .value { font-size: 1rem; color: var(--z-navy); font-weight: 700; margin-top: 4px; }
 
+/* =========================================================================
+ *  AYARLAR FORMU (config.php — kurumsal düzen)
+ * ========================================================================= */
+.zimmet-config-row {
+    display: flex;
+    gap: 28px;
+    padding: 18px 2px;
+    border-bottom: 1px solid var(--z-border-soft);
+}
+.zimmet-config-row:last-of-type { border-bottom: 0; }
+.zimmet-config-label { flex: 0 0 290px; max-width: 290px; }
+.zimmet-config-label .t {
+    display: block; font-weight: 700; color: var(--z-navy); font-size: .95rem;
+}
+.zimmet-config-label .h {
+    display: block; color: var(--z-muted); font-size: .82rem; margin-top: 4px; line-height: 1.4;
+}
+.zimmet-config-control { flex: 1 1 auto; min-width: 0; padding-top: 2px; }
+
+.zimmet-checkgrid { display: flex; flex-wrap: wrap; gap: 10px; }
+.zimmet-check {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 14px;
+    border: 1px solid var(--z-border);
+    border-radius: 999px;
+    background: var(--z-bg-soft);
+    color: #334155; font-weight: 600; font-size: .9rem;
+    cursor: pointer; user-select: none;
+    transition: border-color .15s, background .15s, color .15s, box-shadow .15s;
+}
+.zimmet-check i { font-size: 1rem; color: var(--z-muted); transition: color .15s; }
+.zimmet-check:hover { border-color: var(--z-accent); }
+.zimmet-check input { width: 16px; height: 16px; accent-color: var(--z-navy); margin: 0; }
+.zimmet-check:has(input:checked) {
+    border-color: var(--z-navy);
+    background: #eef3fb;
+    color: var(--z-navy);
+    box-shadow: 0 0 0 1px var(--z-navy) inset;
+}
+.zimmet-check:has(input:checked) i { color: var(--z-navy); }
+
+.zimmet-config-foot {
+    display: flex; justify-content: flex-end;
+    padding-top: 18px; margin-top: 6px;
+    border-top: 1px solid var(--z-border-soft);
+}
+
+@media (max-width: 760px) {
+    .zimmet-config-row { flex-direction: column; gap: 10px; }
+    .zimmet-config-label { flex: none; max-width: none; }
+}
+
 /* GitHub / Manuel güncelleme: yan yana iki sütun */
 .zimmet-update-cols {
     display: grid;
