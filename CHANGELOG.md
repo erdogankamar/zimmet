@@ -3,6 +3,12 @@
 Bu projedeki önemli değişiklikler bu dosyada belgelenir.
 Sürümleme [Semantic Versioning](https://semver.org/lang/tr/) yaklaşımını izler.
 
+## [1.4.1] - 2026-06-05
+
+### Değişti
+- Güncelleme Merkezi'nde **GitHub'dan güncelle** ve **Manuel Güncelle** bölümleri
+  yan yana iki sütunlu, duyarlı (responsive) düzene getirildi.
+
 ## [1.4.0] - 2026-06-05
 
 ### Eklendi
@@ -83,6 +89,7 @@ Sürümleme [Semantic Versioning](https://semver.org/lang/tr/) yaklaşımını i
 - İlk yayın temeli: ISO 27001 uyumlu Zimmet Teslim ve Teslim-Tesellüm tutanağı
   üretimi, tekil/toplu üretim, kurum bazlı şablon, arşivleme ve denetim izi.
 
+[1.4.1]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.1
 [1.4.0]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.0
 [1.3.0]: https://github.com/erdogankamar/zimmet/releases/tag/v1.3.0
 [1.2.1]: https://github.com/erdogankamar/zimmet/releases/tag/v1.2.1

@@ -124,9 +124,13 @@ echo "<div class='zimmet-update-metric'><div class='label'>ZipArchive</div><div 
 echo "</div>";
 
 // ====================================================================
-//  GITHUB'DAN GÜNCELLEME
+//  GÜNCELLEME SEÇENEKLERİ (yan yana: GitHub / Manuel)
 // ====================================================================
-echo "<div class='zimmet-update-panel' style='margin-top:18px'>";
+echo "<div class='zimmet-update-cols'>";
+
+// ---- Sütun 1: GitHub'dan güncelle ----
+echo "<div class='zimmet-update-col'>";
+echo "<div class='zimmet-update-panel'>";
 echo "<h4><i class='ti ti-brand-github'></i> GitHub'dan güncelle</h4>";
 echo "<p class='text-muted' style='margin:.2rem 0 .8rem'>"
     . "En son sürümü doğrudan resmi depodan indirip uygular: "
@@ -179,9 +183,41 @@ if (is_array($latest)) {
     echo "<a href='" . htmlspecialchars($updateUrl . '?ghcheck=1') . "' class='btn btn-outline-primary'>"
         . "<i class='ti ti-refresh'></i> Sürümü kontrol et</a>";
 }
-echo "</div>";
+echo "</div>"; // github paneli
+echo "</div>"; // github sütunu
 
-// Gizli GitHub güncelleme formu + onay penceresi
+// ---- Sütun 2: Manuel Güncelle (ZIP) ----
+if ($canUpdate) {
+    $maxUpload = ini_get('upload_max_filesize');
+    echo "<form id='zimmet-update-form' method='post' enctype='multipart/form-data' action='"
+        . $updateUrl . "' class='zimmet-update-col'>";
+    echo "<div class='zimmet-update-panel'>";
+    echo "<h4><i class='ti ti-package-import'></i> Manuel Güncelle</h4>";
+    echo "<p class='text-muted' style='margin:.2rem 0 .8rem'>"
+        . "Bir <code>zimmet.zip</code> paketi seçin; sistem doğrular, mevcut sürümü otomatik yedekler ve dosyaları günceller.</p>";
+    echo "<div id='zimmet-update-inline-error' class='alert alert-warning' style='display:none;margin-bottom:10px'></div>";
+    echo "<input id='zimmet-plugin-zip' type='file' name='plugin_zip' accept='.zip' required class='form-control' style='max-width:520px'>";
+    echo "<div class='text-muted' style='font-size:.85rem'>"
+        . "Sunucu yükleme limiti: " . htmlspecialchars($maxUpload) . "</div>";
+    echo "<div class='zimmet-update-actions'>";
+    echo "<button type='button' id='zimmet-open-update-modal' class='btn btn-primary'>"
+        . "<i class='ti ti-cloud-upload'></i> Paketi doğrula ve güncelle</button>";
+    echo "<span class='text-muted' style='font-size:.86rem'>Beklenen yapı: <code>zimmet/setup.php</code></span>";
+    echo "</div>";
+    echo "</div>"; // panel
+    echo "<input type='hidden' name='do_update' value='1'>";
+    Html::closeForm();
+} else {
+    echo "<div class='zimmet-update-col'>";
+    echo "<div class='zimmet-update-panel error'>";
+    echo "<h4><i class='ti ti-alert-triangle'></i> Manuel Güncelle</h4>";
+    echo "<p>Otomatik güncelleme için eklenti klasörü yazılabilir olmalı ve PHP ZipArchive eklentisi etkin olmalıdır.</p>";
+    echo "</div></div>";
+}
+
+echo "</div>"; // .zimmet-update-cols
+
+// Gizli formlar + onay pencereleri (grid dışında tutulur)
 if ($canUpdate) {
     echo "<form id='zimmet-github-form' method='post' action='" . $updateUrl . "' style='display:none'>";
     echo "<input type='hidden' name='do_github_update' value='1'>";
@@ -202,34 +238,6 @@ if ($canUpdate) {
     echo "<button type='button' id='zimmet-gh-cancel' class='btn btn-outline-secondary'>Vazgeç</button>";
     echo "<button type='button' id='zimmet-gh-confirm' class='btn btn-primary'>İndir ve güncelle</button>";
     echo "</div></div></div>";
-}
-
-// ====================================================================
-//  ZIP İLE GÜNCELLEME
-// ====================================================================
-if ($canUpdate) {
-    $maxUpload = ini_get('upload_max_filesize');
-    echo "<div class='zimmet-update-note' style='margin-top:18px'>";
-    echo "<strong>ZIP ile güncelleme:</strong> Paket seçilir, sistem paketi doğrular, mevcut sürüm otomatik yedeklenir ve dosyalar güncellenir. "
-        . "İşlem tamamlandığında bu ekranda sonuç özeti görüntülenir.";
-    echo "</div>";
-
-    echo "<form id='zimmet-update-form' method='post' enctype='multipart/form-data' action='"
-        . $updateUrl . "' style='margin-top:12px'>";
-    echo "<div class='zimmet-update-panel'>";
-    echo "<h4>Yeni paketi yükle</h4>";
-    echo "<div id='zimmet-update-inline-error' class='alert alert-warning' style='display:none;margin-bottom:10px'></div>";
-    echo "<input id='zimmet-plugin-zip' type='file' name='plugin_zip' accept='.zip' required class='form-control' style='max-width:520px'>";
-    echo "<div class='text-muted' style='font-size:.85rem'>"
-        . "Sunucu yükleme limiti: " . htmlspecialchars($maxUpload) . "</div>";
-    echo "<div class='zimmet-update-actions'>";
-    echo "<button type='button' id='zimmet-open-update-modal' class='btn btn-primary'>"
-        . "<i class='ti ti-cloud-upload'></i> Paketi doğrula ve güncelle</button>";
-    echo "<span class='text-muted' style='font-size:.86rem'>Beklenen paket yapısı: <code>zimmet/setup.php</code></span>";
-    echo "</div>";
-    echo "</div>";
-    echo "<input type='hidden' name='do_update' value='1'>";
-    Html::closeForm();
 
     echo "<div id='zimmet-update-modal' class='zimmet-modal-backdrop' role='dialog' aria-modal='true'>";
     echo "<div class='zimmet-modal'>";
@@ -246,11 +254,6 @@ if ($canUpdate) {
     echo "<button type='button' id='zimmet-cancel-update' class='btn btn-outline-secondary'>Vazgeç</button>";
     echo "<button type='button' id='zimmet-confirm-update' class='btn btn-primary'>Güncellemeyi başlat</button>";
     echo "</div></div></div>";
-} else {
-    echo "<div class='zimmet-update-panel error' style='margin-top:18px'>";
-    echo "<h4><i class='ti ti-alert-triangle'></i> Otomatik güncelleme kullanılamıyor</h4>";
-    echo "<p>Eklenti klasörü yazılabilir olmalı ve PHP ZipArchive eklentisi etkin olmalıdır. Bu koşullar sağlanmadan güncelleme yapılamaz.</p>";
-    echo "</div>";
 }
 
 echo Html::scriptBlock("

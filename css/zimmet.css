@@ -671,6 +671,21 @@
     font-weight: 800; text-transform: uppercase; letter-spacing: .02em;
 }
 .zimmet-update-metric .value { font-size: 1rem; color: var(--z-navy); font-weight: 700; margin-top: 4px; }
+
+/* GitHub / Manuel güncelleme: yan yana iki sütun */
+.zimmet-update-cols {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    align-items: stretch;
+    margin-top: 18px;
+}
+.zimmet-update-col { display: flex; min-width: 0; }
+.zimmet-update-col > .zimmet-update-panel { flex: 1; margin-top: 0; }
+@media (max-width: 860px) {
+    .zimmet-update-cols { grid-template-columns: 1fr; }
+}
+
 .zimmet-update-panel {
     border: 1px solid var(--z-border);
     border-radius: var(--z-radius-sm);
