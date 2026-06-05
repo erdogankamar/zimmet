@@ -665,8 +665,11 @@ class PluginZimmetDocument extends CommonDBTM
         ]);
         echo "</td>";
 
-        // Teslim eden (teknik personel)
-        echo "<td>" . __('Delivered by', 'zimmet') . "</td><td>";
+        // Teslim eden / Teslim alan (teknik personel) — etiket belge tipine göre değişir
+        $techLabel = ($this->fields['doc_type'] === 'tesellum')
+            ? 'Teslim Alan'
+            : __('Delivered by', 'zimmet');
+        echo "<td><span id='zimmet-tech-label'>" . htmlspecialchars($techLabel) . "</span></td><td>";
         User::dropdown([
             'name'  => 'tech_users_id',
             'value' => $this->fields['tech_users_id'] ?: Session::getLoginUserID(),
@@ -747,6 +750,10 @@ class PluginZimmetDocument extends CommonDBTM
                     if (uid > 0) {
                         ZimmetPlugin.loadUserAssets($rooturl, uid, '#zimmet-asset-body');
                     }
+                });
+                // Belge tipi Teslim-Tesellüm ise teknik personel etiketi 'Teslim Alan' olur
+                $('select[name=doc_type]').on('change', function() {
+                    $('#zimmet-tech-label').text($(this).val() === 'tesellum' ? 'Teslim Alan' : 'Teslim eden');
                 });
             });
         ");

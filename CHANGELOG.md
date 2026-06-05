@@ -3,6 +3,15 @@
 Bu projedeki önemli değişiklikler bu dosyada belgelenir.
 Sürümleme [Semantic Versioning](https://semver.org/lang/tr/) yaklaşımını izler.
 
+## [1.4.9] - 2026-06-05
+
+### Düzeltildi
+- **Teslim-Tesellüm tutanağında etiket:** Belge tipi "Teslim-Tesellüm Tutanağı"
+  seçildiğinde, tutanak formundaki "Teslim eden" alanı artık **"Teslim Alan"**
+  olarak görünür (kişi/değer aynı kalır). Etiket, belge tipi açılır listesi
+  değiştikçe anında güncellenir; doğrudan tesellüm olarak açıldığında da doğru
+  gelir.
+
 ## [1.4.8] - 2026-06-05
 
 ### Düzeltildi
@@ -155,6 +164,9 @@ Sürümleme [Semantic Versioning](https://semver.org/lang/tr/) yaklaşımını i
 - İlk yayın temeli: ISO 27001 uyumlu Zimmet Teslim ve Teslim-Tesellüm tutanağı
   üretimi, tekil/toplu üretim, kurum bazlı şablon, arşivleme ve denetim izi.
 
+[1.4.9]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.9
+[1.4.8]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.8
+[1.4.7]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.7
 [1.4.6]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.6
 [1.4.5]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.5
 [1.4.4]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.4
