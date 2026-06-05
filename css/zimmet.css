@@ -709,7 +709,6 @@
 .zimmet-config-foot {
     display: flex; justify-content: flex-end;
     padding-top: 18px; margin-top: 6px;
-    border-top: 1px solid var(--z-border-soft);
 }
 
 @media (max-width: 760px) {

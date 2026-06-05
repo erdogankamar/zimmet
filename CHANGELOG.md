@@ -3,6 +3,12 @@
 Bu projedeki önemli değişiklikler bu dosyada belgelenir.
 Sürümleme [Semantic Versioning](https://semver.org/lang/tr/) yaklaşımını izler.
 
+## [1.4.8] - 2026-06-05
+
+### Düzeltildi
+- **Ayarlar PDF fontu bölümü:** PDF fontu alanı ile kaydet bölümü arasında
+  görünen çift ayırıcı çizgi teke indirildi.
+
 ## [1.4.7] - 2026-06-05
 
 ### Düzeltildi
