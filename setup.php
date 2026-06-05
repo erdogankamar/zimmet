@@ -17,7 +17,7 @@
  * -------------------------------------------------------------------------
  */
 
-define('PLUGIN_ZIMMET_VERSION', '1.3.0');
+define('PLUGIN_ZIMMET_VERSION', '1.4.0');
 
 // Desteklenen GLPI sürüm aralığı
 define('PLUGIN_ZIMMET_MIN_GLPI', '10.0.0');

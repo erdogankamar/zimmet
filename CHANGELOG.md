@@ -3,6 +3,27 @@
 Bu projedeki önemli değişiklikler bu dosyada belgelenir.
 Sürümleme [Semantic Versioning](https://semver.org/lang/tr/) yaklaşımını izler.
 
+## [1.4.0] - 2026-06-05
+
+### Eklendi
+- **GitHub'dan güncelleme:** Güncelleme Merkezi'nden tek tıkla en son sürüm
+  doğrudan GitHub deposundan indirilip uygulanabilir. "Sürümü kontrol et" ile
+  kurulu sürüm ile depodaki sürüm karşılaştırılır (release → tag → dal sırası).
+  Kurumsal ortamlar için GLPI proxy ayarları desteklenir.
+
+### Düzeltildi
+- **Güncelleme sonrası beyaz sayfa:** İşlem bitince artık Güncelleme Merkezi'ne
+  dönülüp sonuç özeti gösteriliyor (önceden ana sayfaya yönlendirip boş sayfada
+  kalabiliyordu).
+- **OPcache bayatlığı:** Dosyalar değiştirildikten sonra OPcache sıfırlanıyor;
+  `validate_timestamps=0` olan sunucularda güncelleme sonrası oluşan
+  fatal/beyaz sayfa hatası giderildi.
+
+### Değişti
+- Güncelleme motoru paketi izole geçici dizine açıp kopyalayacak şekilde
+  yeniden yazıldı; hem `zimmet/` hem de GitHub arşivlerinin `zimmet-<sürüm>/`
+  üst klasör yapısı desteklenir. Zip-slip koruması korunur.
+
 ## [1.3.0] - 2026-06-05
 
 ### Değişti
@@ -62,6 +83,7 @@ Sürümleme [Semantic Versioning](https://semver.org/lang/tr/) yaklaşımını i
 - İlk yayın temeli: ISO 27001 uyumlu Zimmet Teslim ve Teslim-Tesellüm tutanağı
   üretimi, tekil/toplu üretim, kurum bazlı şablon, arşivleme ve denetim izi.
 
+[1.4.0]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.0
 [1.3.0]: https://github.com/erdogankamar/zimmet/releases/tag/v1.3.0
 [1.2.1]: https://github.com/erdogankamar/zimmet/releases/tag/v1.2.1
 [1.2.0]: https://github.com/erdogankamar/zimmet/releases/tag/v1.2.0

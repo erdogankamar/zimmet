@@ -58,7 +58,7 @@ class PluginZimmetMenu extends CommonGLPI
             'generate' => ['Toplu Üretim', 'Kurum/grup bazında çoklu tutanak üretin', 'ti ti-users-group'],
             'template' => ['Şablonlar', 'Kurum bazlı başlık, doküman no ve taahhüt metni', 'ti ti-template'],
             'config'   => ['Ayarlar', 'Varlık türleri ve PDF yazı tipi', 'ti ti-settings'],
-            'update'   => ['Güncelleme Merkezi', 'Eklentiyi ZIP paketi ile güvenle güncelleyin', 'ti ti-cloud-upload'],
+            'update'   => ['Güncelleme Merkezi', 'Eklentiyi GitHub\'dan veya ZIP paketi ile güvenle güncelleyin', 'ti ti-cloud-upload'],
         ];
         $head = $heads[$current]
             ?? ['Zimmet & Teslim-Tesellüm', 'Kurumsal zimmet yönetimi', 'ti ti-clipboard-check'];
