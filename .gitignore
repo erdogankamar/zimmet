@@ -1,0 +1,21 @@
+# Derleme / dağıtım çıktıları
+*.zip
+
+# Bağımlılıklar (varsa)
+/vendor/
+/node_modules/
+
+# İşletim sistemi
+.DS_Store
+Thumbs.db
+
+# IDE / editör
+/.idea/
+/.vscode/
+*.swp
+*.sublime-*
+
+# Geçici dosyalar
+*.log
+*.tmp
+*.bak

@@ -1,0 +1,782 @@
+/* =========================================================================
+ * HSC Zimmet — Kurumsal arayüz tasarım sistemi
+ * Tüm sayfalar .zimmet-app kapsayıcısı içinde tek tip görünüm kullanır.
+ * GLPI ve Bootstrap tablo/kart/buton varyasyonları burada normalize edilir.
+ * ========================================================================= */
+
+.zimmet-app {
+    /* Tasarım belirteçleri (tokens) */
+    --z-navy: #1f3763;
+    --z-primary: #1f5f9f;
+    --z-primary-d: #17497d;
+    --z-accent: #4d9ed7;
+    --z-text: #243042;
+    --z-muted: #64748b;
+    --z-border: #d8dee8;
+    --z-border-soft: #e7ecf3;
+    --z-bg: #f5f7fb;
+    --z-bg-soft: #f8fafc;
+    --z-radius: 9px;
+    --z-radius-sm: 7px;
+    --z-shadow: 0 1px 2px rgba(15, 23, 42, .05);
+
+    color: var(--z-text);
+    font-size: .875rem;
+    line-height: 1.5;
+}
+
+.zimmet-app *,
+.zimmet-app *::before,
+.zimmet-app *::after {
+    box-sizing: border-box;
+}
+
+/* ---- Tipografi standardı --------------------------------------------- */
+.zimmet-app h1,
+.zimmet-app h2,
+.zimmet-app h3,
+.zimmet-app h4,
+.zimmet-app h5 {
+    color: var(--z-navy);
+    font-weight: 800;
+    margin: 0 0 .5rem;
+    line-height: 1.25;
+}
+.zimmet-app h3 { font-size: 1.05rem; }
+.zimmet-app h4 { font-size: .95rem; }
+.zimmet-app code {
+    background: #eef2f8;
+    color: #334155;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-size: .82em;
+}
+.zimmet-app .text-muted { color: var(--z-muted) !important; }
+
+/* ---- Sayfa başlığı (her sayfada ortak) ------------------------------- */
+.zimmet-page-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    background: linear-gradient(135deg, var(--z-navy) 0%, var(--z-primary) 100%);
+    border-radius: var(--z-radius);
+    color: #fff;
+    box-shadow: var(--z-shadow);
+}
+.zimmet-page-head .zimmet-page-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .15);
+    font-size: 1.5rem;
+    flex: 0 0 auto;
+}
+.zimmet-page-head h1 {
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.2;
+}
+.zimmet-page-head p {
+    margin: 2px 0 0;
+    font-size: .82rem;
+    color: rgba(255, 255, 255, .82);
+}
+
+/* ---- Üst gezinme çubuğu ---------------------------------------------- */
+.zimmet-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    margin: 0 0 14px 0;
+    padding: 7px;
+    background: #fff;
+    border: 1px solid var(--z-border);
+    border-radius: var(--z-radius);
+    box-shadow: var(--z-shadow);
+}
+.zimmet-nav-main {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.zimmet-nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 34px;
+    padding: 7px 12px;
+    border: 1px solid transparent;
+    border-radius: var(--z-radius-sm);
+    color: var(--z-primary);
+    background: transparent;
+    font-weight: 600;
+    font-size: .85rem;
+    line-height: 1;
+    text-decoration: none;
+    transition: background-color .15s, border-color .15s, color .15s;
+}
+.zimmet-nav-link i { font-size: 1.05rem; }
+.zimmet-nav-link:hover,
+.zimmet-nav-link:focus {
+    background: #eef6ff;
+    border-color: #bfdbfe;
+    color: var(--z-primary-d);
+    text-decoration: none;
+}
+.zimmet-nav-link.is-active {
+    color: #fff;
+    background: var(--z-primary);
+    border-color: var(--z-primary);
+    box-shadow: 0 1px 2px rgba(15, 23, 42, .12);
+}
+.zimmet-nav-primary {
+    margin-left: auto;
+    color: #fff;
+    background: var(--z-navy);
+    border-color: var(--z-navy);
+}
+.zimmet-nav-primary:hover,
+.zimmet-nav-primary:focus {
+    color: #fff;
+    background: #16284a;
+    border-color: #16284a;
+}
+
+/* ---- Kartlar (GLPI .card ve özel .zimmet-card normalize) ------------- */
+.zimmet-app .card,
+.zimmet-card {
+    border: 1px solid var(--z-border);
+    border-radius: var(--z-radius);
+    box-shadow: var(--z-shadow);
+    background: #fff;
+    margin-bottom: 14px;
+}
+.zimmet-app .card-body { padding: 16px 18px; }
+.zimmet-app .card-footer {
+    padding: 12px 18px;
+    background: var(--z-bg-soft);
+    border-top: 1px solid var(--z-border-soft);
+    color: var(--z-muted);
+    font-size: .82rem;
+}
+.zimmet-card-head {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--z-border);
+    background: #eaf0f8;
+    border-radius: var(--z-radius) var(--z-radius) 0 0;
+}
+.zimmet-card-head i { color: var(--z-primary); font-size: 1.1rem; }
+.zimmet-card-head h3 {
+    margin: 0;
+    font-size: .8rem;
+    font-weight: 800;
+    color: #54657f;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+}
+.zimmet-card-body { padding: 16px 18px; }
+
+/* Tek sıra filtre düzeni (Toplu Üretim) */
+.zimmet-genfilter {
+    display: flex;
+    gap: 14px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+.zimmet-genfilter .zimmet-filter-field { flex: 1 1 200px; min-width: 170px; }
+.zimmet-genfilter .zimmet-filter-field .select2-container { width: 100% !important; }
+.zimmet-genfilter-action { flex: 0 0 auto; }
+.zimmet-genfilter-action .btn { min-height: 36px; white-space: nowrap; }
+
+/* Bölüm başlığı */
+.zimmet-section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 12px;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--z-navy);
+}
+.zimmet-section-title i { color: var(--z-primary); }
+
+/* ---- Tablolar: tüm varyasyonları tek görünüme indir ------------------ */
+.zimmet-app .tab_cadre_fixe,
+.zimmet-app .tab_cadre_fixehov,
+.zimmet-app .table,
+.zimmet-app .zimmet-document-table {
+    width: 100%;
+    margin: 0;
+    border-collapse: collapse;
+    font-size: .85rem;
+    background: #fff;
+}
+.zimmet-app table thead th,
+.zimmet-app .tab_cadre_fixe > tbody > tr:first-child > th {
+    background: #f8fafc;
+    color: var(--z-muted);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--z-border);
+    text-align: left;
+    vertical-align: middle;
+}
+.zimmet-app table tbody td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--z-border-soft);
+    vertical-align: middle;
+    color: var(--z-text);
+}
+.zimmet-app table tbody tr:hover td { background: #f6f9ff; }
+.zimmet-app .table-striped tbody tr:nth-child(odd) td,
+.zimmet-app .tab_bg_2 { background: var(--z-bg-soft); }
+.zimmet-app table a { color: var(--z-primary); font-weight: 600; text-decoration: none; }
+.zimmet-app table a:hover { text-decoration: underline; }
+.zimmet-app .table-responsive {
+    border-radius: var(--z-radius);
+    overflow: hidden;
+}
+
+/* ---- Formlar (GLPI showFormHeader tablolarını yumuşat) --------------- */
+.zimmet-app .tab_cadre_fixe td,
+.zimmet-app .tab_cadre_fixe th { border: 0; }
+.zimmet-app input[type=text],
+.zimmet-app input[type=number],
+.zimmet-app input[type=date],
+.zimmet-app input[type=file],
+.zimmet-app textarea,
+.zimmet-app select,
+.zimmet-app .form-control {
+    font-size: .85rem;
+    min-height: 36px;
+    border: 1px solid var(--z-border);
+    border-radius: var(--z-radius-sm);
+}
+.zimmet-app .select2-container { min-height: 36px; }
+.zimmet-app label { font-weight: 600; color: var(--z-text); }
+
+/* ---- Butonlar standardı ---------------------------------------------- */
+.zimmet-app .btn {
+    font-size: .85rem;
+    font-weight: 600;
+    border-radius: var(--z-radius-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    line-height: 1.2;
+}
+.zimmet-app .btn i { font-size: 1rem; }
+.zimmet-app .btn:hover i,
+.zimmet-app .btn:focus i,
+.zimmet-app .btn:active i { color: currentColor; }
+.zimmet-app .btn-outline-primary:hover i,
+.zimmet-app .btn-outline-primary:focus i,
+.zimmet-app .btn-outline-primary:active i,
+.zimmet-app .btn-outline-secondary:hover i,
+.zimmet-app .btn-outline-secondary:focus i,
+.zimmet-app .btn-outline-secondary:active i,
+.zimmet-app .btn-outline-success:hover i,
+.zimmet-app .btn-outline-success:focus i,
+.zimmet-app .btn-outline-success:active i,
+.zimmet-app .btn-outline-danger:hover i,
+.zimmet-app .btn-outline-danger:focus i,
+.zimmet-app .btn-outline-danger:active i { color: #fff !important; }
+.zimmet-app .btn-sm { font-size: .8rem; }
+
+/* ---- Rozetler -------------------------------------------------------- */
+.zimmet-app .badge {
+    font-size: .72rem;
+    font-weight: 700;
+    border-radius: 6px;
+    padding: 4px 8px;
+}
+.zimmet-badge-draft           { background:#64748b; color:#fff; }
+.zimmet-badge-printed         { background:#2563eb; color:#fff; }
+.zimmet-badge-signed,
+.zimmet-badge-signed_archived { background:#16a34a; color:#fff; }
+.zimmet-badge-returned        { background:#ea580c; color:#fff; }
+.zimmet-badge-yes             { background:#16a34a; color:#fff; }
+.zimmet-badge-no              { background:#94a3b8; color:#fff; }
+.zimmet-app .badge.zimmet-count {
+    min-width: 24px;
+    padding: 3px 9px;
+    border-radius: 20px;
+    background: #e7f0fb;
+    color: #1f5f9f;
+    font-weight: 800;
+}
+
+/* ---- Ortak liste başlığı (tüm listelerde tek tip) ------------------- */
+.zimmet-list-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px;
+    background: #fff;
+    border-bottom: 1px solid var(--z-border);
+}
+.zimmet-list-title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: .98rem;
+    font-weight: 800;
+    color: var(--z-navy);
+}
+.zimmet-list-title i { color: var(--z-primary); font-size: 1.15rem; }
+.zimmet-list-count { font-size: .82rem; color: var(--z-muted); white-space: nowrap; }
+
+/* ---- Hizalama: başlık ve hücre daima aynı -------------------------- */
+.zimmet-app .zimmet-document-table th.center,
+.zimmet-app .zimmet-document-table td.center { text-align: center !important; }
+.zimmet-app .zimmet-document-table th.right,
+.zimmet-app .zimmet-document-table td.right { text-align: right !important; }
+.zimmet-app .zimmet-document-table th,
+.zimmet-app .zimmet-document-table td { text-align: left; }
+
+/* ---- Bilgi / uyarı panelleri ----------------------------------------- */
+.zimmet-app .alert {
+    border-radius: var(--z-radius);
+    border: 1px solid var(--z-border);
+    font-size: .85rem;
+}
+.zimmet-note {
+    border-left: 4px solid var(--z-primary);
+    background: #f6f9fc;
+    padding: 12px 14px;
+    border-radius: 6px;
+    color: #334155;
+    margin: 0 0 14px;
+}
+
+/* ---- Manuel ekipman satırı ------------------------------------------- */
+.zimmet-asset-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 0 0 8px;
+}
+.zimmet-asset-head h4 { margin: 0; }
+.zimmet-asset-head .btn { margin-left: auto; white-space: nowrap; }
+.zimmet-asset-table th,
+.zimmet-asset-table td { vertical-align: middle; }
+.zimmet-manual-row td { background-color: #fffbeb !important; }
+
+/* =========================================================================
+ *  TUTANAK LİSTESİ (document.php)
+ * ========================================================================= */
+.zimmet-pdf-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 12px 0 0;
+}
+.zimmet-form-footer-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px;
+}
+.zimmet-form-footer-actions .zimmet-form-actions {
+    order: 1;
+    margin: 0 !important;
+    align-items: center;
+}
+.zimmet-form-footer-actions > button[type=submit] {
+    order: 2;
+    margin-left: auto !important;
+}
+
+.zimmet-filter-card .card-body { padding: 12px 16px; }
+.zimmet-filter-grid {
+    display: grid;
+    grid-template-columns: minmax(320px, 2fr) minmax(150px, .72fr) minmax(145px, .65fr) minmax(240px, 1.1fr) max-content;
+    gap: 12px;
+    align-items: end;
+}
+.zimmet-filter-grid-wide { width: 100%; }
+.zimmet-filter-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: .72rem;
+    font-weight: 800;
+    color: var(--z-muted);
+    text-transform: uppercase;
+    line-height: 1;
+}
+.zimmet-filter-field label .zimmet-optional {
+    font-weight: 600;
+    font-size: .92em;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--z-muted);
+    opacity: .7;
+}
+.zimmet-filter-field .form-control,
+.zimmet-filter-field .select2-container,
+.zimmet-filter-field select { min-height: 36px; }
+.zimmet-filter-field .select2-container { width: 100% !important; }
+.zimmet-filter-entity { min-width: 0; }
+.zimmet-filter-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+.zimmet-filter-actions .btn { min-height: 36px; white-space: nowrap; }
+.zimmet-filter-actions-primary { min-width: 200px; }
+
+.zimmet-bulkbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 12px;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--z-border);
+    background: var(--z-bg-soft);
+}
+.zimmet-bulk-summary {
+    color: #475569;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-height: 38px;
+    padding: 0 12px;
+    border: 1px solid var(--z-border-soft);
+    border-radius: var(--z-radius-sm);
+    background: #fff;
+}
+.zimmet-bulk-summary strong { color: var(--z-navy); font-weight: 800; }
+.zimmet-bulk-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+.zimmet-bulk-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 8px;
+    border-right: 1px solid var(--z-border-soft);
+}
+.zimmet-bulk-group:first-child { padding-left: 0; }
+.zimmet-bulk-group:last-child { padding-right: 0; border-right: 0; }
+.zimmet-bulk-group .btn { min-height: 32px; }
+.zimmet-status-action { display: inline-flex; align-items: center; gap: 6px; }
+.zimmet-status-action select { max-width: 170px; }
+
+/* Standart liste tablosu — tutanak ve şablon listelerinde ortak görünüm
+   (yumuşak mavi-gri başlık + zebra satır + ferah boşluk + mavi bağlantı) */
+.zimmet-app .zimmet-document-table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+.zimmet-app .zimmet-document-table thead th {
+    background: #f8fafc !important;
+    color: #64748b !important;
+    font-size: .72rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    padding: 11px 14px !important;
+    border-bottom: 1px solid var(--z-border) !important;
+    text-align: left !important;
+    white-space: nowrap;
+}
+.zimmet-app .zimmet-document-table tbody td {
+    padding: 12px 14px !important;
+    border-bottom: 1px solid #eef2f7;
+    background: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left !important;
+}
+.zimmet-app .zimmet-document-table tbody tr:nth-child(even) td { background: #f7f9fc; }
+.zimmet-app .zimmet-document-table tbody tr:hover td { background: #eaf2fc; }
+.zimmet-app .zimmet-document-table tbody tr:last-child td { border-bottom: 0; }
+.zimmet-app .zimmet-document-table a {
+    color: var(--z-primary);
+    font-weight: 700;
+    text-decoration: none !important;
+}
+.zimmet-app .zimmet-document-table a:hover,
+.zimmet-app .zimmet-document-table a:focus,
+.zimmet-app .zimmet-document-table a:active { text-decoration: none !important; }
+.zimmet-app .zimmet-document-table .center,
+.zimmet-app .zimmet-document-table .text-center { text-align: center !important; }
+
+.zimmet-document-list .zimmet-document-table { table-layout: fixed; }
+.zimmet-document-list .zimmet-col-check { width: 42px; }
+.zimmet-document-list .zimmet-col-no { width: 13%; }
+.zimmet-document-list .zimmet-col-person { width: 15%; }
+.zimmet-document-list .zimmet-col-entity { width: 19%; }
+.zimmet-document-list .zimmet-col-type { width: 20%; }
+.zimmet-document-list .zimmet-col-status { width: 9%; }
+.zimmet-document-list .zimmet-col-date { width: 10%; }
+.zimmet-document-list .zimmet-col-count { width: 8%; }
+.zimmet-document-list .zimmet-col-actions { width: 92px; }
+.zimmet-document-list .zimmet-cell-check,
+.zimmet-document-list .zimmet-cell-entity,
+.zimmet-document-list .zimmet-cell-type,
+.zimmet-document-list .zimmet-cell-status,
+.zimmet-document-list .zimmet-cell-date,
+.zimmet-document-list .zimmet-cell-count { text-align: center !important; }
+
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > thead > tr > th.zimmet-cell-entity,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > tbody > tr > td.zimmet-cell-entity,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > thead > tr > th.zimmet-cell-type,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > tbody > tr > td.zimmet-cell-type,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > thead > tr > th.zimmet-cell-status,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > tbody > tr > td.zimmet-cell-status,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > thead > tr > th.zimmet-cell-date,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > tbody > tr > td.zimmet-cell-date,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > thead > tr > th.zimmet-cell-count,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > tbody > tr > td.zimmet-cell-count {
+    text-align: center !important;
+}
+
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > thead > tr > th.zimmet-cell-no,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > tbody > tr > td.zimmet-cell-no,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > thead > tr > th.zimmet-cell-person,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > tbody > tr > td.zimmet-cell-person {
+    text-align: left !important;
+}
+
+.zimmet-template .zimmet-document-table { table-layout: fixed; }
+.zimmet-template-col-seq { width: 46px; }
+.zimmet-template-col-name { width: 16%; }
+.zimmet-template-col-type { width: 14%; }
+.zimmet-template-col-entity { width: 13%; }
+.zimmet-template-col-default { width: 8%; }
+.zimmet-template-col-docno { width: 10%; }
+.zimmet-template-col-revision { width: 8%; }
+.zimmet-template-col-revdate { width: 10%; }
+.zimmet-template-col-created { width: 11%; }
+.zimmet-template-col-updated { width: 12%; }
+.zimmet-template-col-active { width: 7%; }
+
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > thead > tr > th.zimmet-template-name,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > tbody > tr > td.zimmet-template-name,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > thead > tr > th.zimmet-template-type,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > tbody > tr > td.zimmet-template-type {
+    text-align: left !important;
+}
+
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > thead > tr > th.zimmet-template-seq,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > tbody > tr > td.zimmet-template-seq,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > thead > tr > th.zimmet-template-entity,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > tbody > tr > td.zimmet-template-entity,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > thead > tr > th.zimmet-template-default,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > tbody > tr > td.zimmet-template-default,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > thead > tr > th.zimmet-template-docno,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > tbody > tr > td.zimmet-template-docno,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > thead > tr > th.zimmet-template-revision,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > tbody > tr > td.zimmet-template-revision,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > thead > tr > th.zimmet-template-revdate,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > tbody > tr > td.zimmet-template-revdate,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > thead > tr > th.zimmet-template-created,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > tbody > tr > td.zimmet-template-created,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > thead > tr > th.zimmet-template-updated,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > tbody > tr > td.zimmet-template-updated,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > thead > tr > th.zimmet-template-active,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > tbody > tr > td.zimmet-template-active {
+    text-align: center !important;
+}
+
+.zimmet-actions-head, .zimmet-actions-cell { text-align: right !important; }
+.zimmet-actions-head { width: 92px; padding-right: 16px !important; }
+.zimmet-actions-cell { width: 92px; padding-right: 16px !important; }
+.zimmet-list-actions {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: flex-end;
+    width: 68px;
+    margin-left: auto;
+}
+.zimmet-list-actions .btn {
+    width: 30px; height: 28px; padding: 3px 0;
+    display: inline-flex; align-items: center; justify-content: center;
+}
+
+/* GLPI tablo teması th ve td için farklı iç boşluk veriyor; başlık/gövde
+   kaymasını burada en spesifik ortak kuralla aynı başlangıç çizgisine kilitle. */
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > thead > tr > th,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > tbody > tr > td {
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+}
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > thead > tr > th:first-child,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > tbody > tr > td:first-child {
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+}
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > thead > tr > th.zimmet-actions-head,
+.zimmet-app table.tab_cadre_fixehov.zimmet-document-table > tbody > tr > td.zimmet-actions-cell {
+    padding-left: 6px !important;
+    padding-right: 14px !important;
+}
+.zimmet-list-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-top: 1px solid var(--z-border);
+    color: var(--z-muted);
+    font-size: .82rem;
+}
+.zimmet-pager { display: flex; gap: 8px; }
+
+/* =========================================================================
+ *  GÜNCELLEME MERKEZİ (update.php)
+ * ========================================================================= */
+.zimmet-update-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+}
+.zimmet-update-metric {
+    border: 1px solid var(--z-border);
+    border-radius: var(--z-radius-sm);
+    padding: 12px 14px;
+    background: var(--z-bg-soft);
+}
+.zimmet-update-metric .label {
+    font-size: .72rem; color: var(--z-muted);
+    font-weight: 800; text-transform: uppercase; letter-spacing: .02em;
+}
+.zimmet-update-metric .value { font-size: 1rem; color: var(--z-navy); font-weight: 700; margin-top: 4px; }
+.zimmet-update-panel {
+    border: 1px solid var(--z-border);
+    border-radius: var(--z-radius-sm);
+    padding: 14px 16px;
+    background: var(--z-bg-soft);
+    margin-top: 14px;
+}
+.zimmet-update-panel.success { border-color: #b7dfc2; background: #f3fbf5; }
+.zimmet-update-panel.error { border-color: #f1b7b7; background: #fff5f5; }
+.zimmet-update-panel h4 { margin: 0 0 10px; }
+.zimmet-update-list, .zimmet-confirm-list {
+    margin: 0; padding: 0; list-style: none;
+}
+.zimmet-update-list li, .zimmet-confirm-list li {
+    display: flex; justify-content: space-between; gap: 18px;
+    padding: 7px 0; border-bottom: 1px solid rgba(148, 163, 184, .22);
+}
+.zimmet-update-list li:last-child, .zimmet-confirm-list li:last-child { border-bottom: 0; }
+.zimmet-update-list span:first-child, .zimmet-confirm-list span:first-child { color: var(--z-muted); }
+.zimmet-update-list span:last-child, .zimmet-confirm-list span:last-child {
+    font-weight: 700; color: #1f2937; text-align: right;
+}
+.zimmet-update-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 12px; }
+.zimmet-update-backups {
+    width: 100%;
+    border: 1px solid var(--z-border);
+    border-radius: var(--z-radius);
+    background: #fff;
+    margin-top: 22px;
+    overflow: hidden;
+}
+.zimmet-update-backups-head {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 13px 16px; background: var(--z-bg-soft); border-bottom: 1px solid var(--z-border-soft);
+}
+/* Bölüm başlığı: sütun başlıklarından belirgin şekilde ayrı (lacivert, büyük) */
+.zimmet-update-backups-head {
+    background: #fff;
+}
+.zimmet-update-backups-head h4 {
+    margin: 0;
+    font-size: .98rem;
+    font-weight: 800;
+    color: var(--z-navy);
+}
+.zimmet-update-backups-head h4 i { color: var(--z-primary); }
+.zimmet-update-backups-head span { font-size: .82rem; color: var(--z-muted); }
+.zimmet-update-backups .table-responsive { border-radius: 0; }
+.zimmet-update-backups .zimmet-document-table { border-top: 1px solid var(--z-border); }
+.zimmet-update-backups .backup-file { font-weight: 700; color: var(--z-navy); }
+.zimmet-update-backups .backup-path {
+    padding: 12px 16px; border-top: 1px solid var(--z-border-soft);
+    background: #fbfdff; color: var(--z-muted); font-size: .85rem;
+}
+
+/* =========================================================================
+ *  ONAY MODALI (document.php, update.php ortak)
+ * ========================================================================= */
+.zimmet-confirm-backdrop,
+.zimmet-modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(15, 23, 42, .52);
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+.zimmet-confirm-modal,
+.zimmet-modal {
+    width: min(540px, 100%);
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 24px 70px rgba(15, 23, 42, .35);
+    border: 1px solid var(--z-border);
+}
+.zimmet-confirm-head,
+.zimmet-modal-head { padding: 18px 20px; border-bottom: 1px solid var(--z-border-soft); }
+.zimmet-confirm-head h3,
+.zimmet-modal-head h3 { margin: 0; font-size: 1.05rem; color: var(--z-navy); font-weight: 800; }
+.zimmet-confirm-body,
+.zimmet-modal-body { padding: 18px 20px; color: #334155; }
+.zimmet-confirm-body p { margin: 0 0 10px; }
+.zimmet-confirm-foot,
+.zimmet-modal-foot {
+    display: flex; justify-content: flex-end; gap: 10px;
+    padding: 14px 20px; background: var(--z-bg-soft);
+    border-top: 1px solid var(--z-border-soft); border-radius: 0 0 12px 12px;
+}
+
+/* =========================================================================
+ *  DUYARLI (responsive)
+ * ========================================================================= */
+@media (max-width: 1100px) {
+    .zimmet-nav { align-items: flex-start; flex-direction: column; }
+    .zimmet-nav-primary { margin-left: 0; }
+    .zimmet-filter-grid { grid-template-columns: minmax(260px, 1.4fr) minmax(145px, .8fr) minmax(145px, .8fr); }
+    .zimmet-filter-actions { justify-content: flex-start; }
+    .zimmet-filter-actions-primary { min-width: 0; }
+    .zimmet-bulkbar { align-items: flex-start; flex-direction: column; }
+    .zimmet-bulk-actions { justify-content: flex-start; }
+    .zimmet-bulk-group { flex-wrap: wrap; padding: 0; border-right: 0; }
+    .zimmet-update-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+    .zimmet-filter-grid { grid-template-columns: 1fr; }
+    .zimmet-page-head { flex-direction: row; }
+}

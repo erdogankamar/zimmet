@@ -1,0 +1,310 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: zimmet 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language-Team: Artsution\n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Asset handover record"
+msgstr "Zimmet Teslim Tutanağı"
+
+msgid "Asset return record"
+msgstr "Teslim-Tesellüm Tutanağı"
+
+msgid "Handover record"
+msgid_plural "Handover records"
+msgstr[0] "Zimmet Tutanağı"
+msgstr[1] "Zimmet Tutanakları"
+
+msgid "Handover template"
+msgid_plural "Handover templates"
+msgstr[0] "Tutanak Şablonu"
+msgstr[1] "Tutanak Şablonları"
+
+msgid "Equipment line"
+msgid_plural "Equipment lines"
+msgstr[0] "Ekipman Satırı"
+msgstr[1] "Ekipman Satırları"
+
+msgid "Handover documents"
+msgstr "Zimmet tutanakları"
+
+msgid "Manage configuration"
+msgstr "Yapılandırmayı yönet"
+
+msgid "Zimmet"
+msgstr "Zimmet"
+
+msgid "Zimmet & Teslim-Tesellüm"
+msgstr "Zimmet"
+
+msgid "Zimmet configuration"
+msgstr "Zimmet yapılandırması"
+
+msgid "Document type"
+msgstr "Belge tipi"
+
+msgid "Document number"
+msgstr "Doküman numarası"
+
+msgid "Revision"
+msgstr "Revizyon"
+
+msgid "Revision date"
+msgstr "Revizyon tarihi"
+
+msgid "Draft"
+msgstr "Taslak"
+
+msgid "Printed"
+msgstr "Yazdırıldı"
+
+msgid "Signed & archived"
+msgstr "İmzalı & Arşivlendi"
+
+msgid "Returned"
+msgstr "İade Edildi"
+
+msgid "Assigned to"
+msgstr "Zimmetli kişi"
+
+msgid "Delivered by"
+msgstr "Teslim eden"
+
+msgid "Equipment"
+msgstr "Ekipmanlar"
+
+msgid "Equipment name"
+msgstr "Ekipman adı"
+
+msgid "Inventory/Stock number"
+msgstr "Stok / Envanter No"
+
+msgid "Quantity"
+msgstr "Miktar"
+
+msgid "Unit"
+msgstr "Cinsi"
+
+msgid "Add manual line"
+msgstr "Manuel satır ekle"
+
+msgid "Select a person to load assigned assets"
+msgstr "Zimmetli cihazları yüklemek için bir personel seçin"
+
+msgid "Please select a person"
+msgstr "Lütfen bir personel seçin"
+
+msgid "No asset assigned to %s. You may add manual lines."
+msgstr "%s kişisine zimmetli cihaz yok. Manuel satır ekleyebilirsiniz."
+
+msgid "Bulk generation"
+msgstr "Toplu Üretim"
+
+msgid "Step 1: Filter"
+msgstr "Adım 1: Filtre"
+
+msgid "Step 2: Select personnel"
+msgstr "Adım 2: Personel seçimi"
+
+msgid "List personnel"
+msgstr "Personeli listele"
+
+msgid "Department/Title"
+msgstr "Departman/Görev"
+
+msgid "Assigned assets"
+msgstr "Zimmetli cihaz"
+
+msgid "No personnel with assigned assets found for this filter."
+msgstr "Bu filtre için zimmetli cihazı olan personel bulunamadı."
+
+msgid "Create records & generate combined PDF"
+msgstr "Kayıtları oluştur & birleşik PDF üret"
+
+msgid "A handover record will be created (and archived) for each selected person."
+msgstr "Seçilen her personel için bir tutanak kaydı oluşturulur (ve arşivlenir)."
+
+msgid "No person selected"
+msgstr "Personel seçilmedi"
+
+msgid "No document could be created"
+msgstr "Tutanak oluşturulamadı"
+
+msgid "PDF could not be generated"
+msgstr "PDF üretilemedi"
+
+msgid "Templates"
+msgstr "Şablonlar"
+
+msgid "Header title"
+msgstr "Başlık"
+
+msgid "Header subtitle"
+msgstr "Alt başlık"
+
+msgid "Commitment / declaration text"
+msgstr "Taahhütname / beyan metni"
+
+msgid "Asset types to include"
+msgstr "Dahil edilecek varlık türleri"
+
+msgid "PDF font (Unicode/Turkish)"
+msgstr "PDF fontu (Unicode/Türkçe)"
+
+msgid "Configuration saved"
+msgstr "Yapılandırma kaydedildi"
+
+msgid "View / Print PDF"
+msgstr "PDF Görüntüle / Yazdır"
+
+msgid "Archive signed copy"
+msgstr "İmzalı kopyayı arşivle"
+
+msgid "Archive this record with integrity hash?"
+msgstr "Bu tutanak bütünlük özetiyle arşivlensin mi?"
+
+msgid "Handover record archived successfully (integrity hash stored)."
+msgstr "Tutanak başarıyla arşivlendi (bütünlük özeti kaydedildi)."
+
+msgid "Archiving failed."
+msgstr "Arşivleme başarısız."
+
+msgid "Document not found"
+msgstr "Tutanak bulunamadı"
+
+msgid "Return record"
+msgstr "İade Tutanağı"
+
+msgid "Auto-generated handover record. SHA-256: %s"
+msgstr "Otomatik üretilmiş zimmet tutanağı. SHA-256: %s"
+
+msgid "%1$s archived handover record #%2$d (SHA-256: %3$s)"
+msgstr "%1$s, #%2$d numaralı tutanağı arşivledi (SHA-256: %3$s)"
+
+msgid "Company logo"
+msgstr "Kurum logosu"
+
+msgid "Remove current logo"
+msgstr "Mevcut logoyu kaldır"
+
+msgid "PNG/JPG/GIF. Shown at the top-left of the PDF header."
+msgstr "PNG/JPG/GIF. PDF başlığının sol üst köşesinde görünür."
+
+msgid "Invalid logo file type"
+msgstr "Geçersiz logo dosya türü"
+
+msgid "Auto from template"
+msgstr "Şablondan otomatik"
+
+msgid "Auto-filled from selected person"
+msgstr "Seçilen personelden otomatik dolar"
+
+msgid "Handover records"
+msgstr "Zimmet Tutanakları"
+
+msgid "New record"
+msgstr "Yeni Tutanak"
+
+msgid "Default templates created"
+msgstr "Varsayılan şablonlar oluşturuldu"
+
+msgid "No template yet"
+msgstr "Henüz şablon yok"
+
+msgid "Create the default Zimmet and Teslim-Tesellüm templates (you can edit them afterwards), or add your own with the \"Add\" button."
+msgstr "Varsayılan Zimmet ve Teslim-Tesellüm şablonlarını oluşturun (sonradan düzenleyebilirsiniz) veya \"Ekle\" düğmesiyle kendiniz ekleyin."
+
+msgid "Create default templates"
+msgstr "Varsayılan şablonları oluştur"
+
+msgid "Template table is missing. Please uninstall and reinstall the plugin."
+msgstr "Şablon tablosu bulunamadı. Lütfen eklentiyi kaldırıp yeniden kurun."
+
+msgid "%d default template(s) created"
+msgstr "%d varsayılan şablon oluşturuldu"
+
+msgid "Templates already exist"
+msgstr "Şablonlar zaten mevcut"
+
+msgid "Could not create templates. DB error: "
+msgstr "Şablonlar oluşturulamadı. VT hatası: "
+
+msgid "Update"
+msgstr "Güncelle"
+
+msgid "Update plugin"
+msgstr "Eklentiyi güncelle"
+
+msgid "Update Zimmet plugin from ZIP"
+msgstr "Zimmet eklentisini ZIP ile güncelle"
+
+msgid "Installed version"
+msgstr "Kurulu sürüm"
+
+msgid "Plugin directory writable"
+msgstr "Eklenti klasörü yazılabilir"
+
+msgid "Available"
+msgstr "Mevcut"
+
+msgid "Missing"
+msgstr "Eksik"
+
+msgid "Upload the zimmet.zip you received. The zip must contain a top-level \"zimmet/\" folder. Your current version is automatically backed up before updating."
+msgstr "Size verilen zimmet.zip dosyasını yükleyin. Zip, üst düzeyde \"zimmet/\" klasörü içermelidir. Güncellemeden önce mevcut sürüm otomatik yedeklenir."
+
+msgid "Server upload limit: %s"
+msgstr "Sunucu yükleme limiti: %s"
+
+msgid "Update the plugin now? Current files will be replaced (a backup is taken first)."
+msgstr "Eklenti şimdi güncellensin mi? Mevcut dosyalar değiştirilecek (önce yedek alınır)."
+
+msgid "Upload & update"
+msgstr "Yükle & güncelle"
+
+msgid "Self-update is not possible: the plugin directory must be writable and the PHP ZipArchive extension must be enabled. Use cPanel to update files this time."
+msgstr "Otomatik güncelleme mümkün değil: eklenti klasörü yazılabilir olmalı ve PHP ZipArchive eklentisi etkin olmalı. Bu sefer dosyaları cPanel ile güncelleyin."
+
+msgid "Recent backups"
+msgstr "Son yedekler"
+
+msgid "Backups are stored on the server at: %s"
+msgstr "Yedekler sunucuda şurada saklanır: %s"
+
+msgid "Plugin updated successfully to version %s. If prompted on the Plugins page, click \"Update\"."
+msgstr "Eklenti %s sürümüne başarıyla güncellendi. Eklentiler sayfasında istenirse \"Güncelle\"ye tıklayın."
+
+msgid "Backup: %s"
+msgstr "Yedek: %s"
+
+msgid "No valid zip uploaded."
+msgstr "Geçerli bir zip yüklenmedi."
+
+msgid "File must be a .zip archive."
+msgstr "Dosya .zip arşivi olmalıdır."
+
+msgid "Plugin directory is not writable: %s"
+msgstr "Eklenti klasörü yazılabilir değil: %s"
+
+msgid "Could not open the zip archive."
+msgstr "Zip arşivi açılamadı."
+
+msgid "Invalid package: zimmet/setup.php not found in the zip."
+msgstr "Geçersiz paket: zip içinde zimmet/setup.php bulunamadı."
+
+msgid "Zip must contain a top-level \"zimmet/\" folder. Please zip the folder, not its contents."
+msgstr "Zip, üst düzeyde \"zimmet/\" klasörü içermelidir. Lütfen klasörün içeriğini değil, klasörün kendisini zipleyin."
+
+msgid "Invalid package: this does not look like the Zimmet plugin."
+msgstr "Geçersiz paket: bu Zimmet eklentisine benzemiyor."
+
+msgid "PHP ZipArchive extension is not available on this server."
+msgstr "Bu sunucuda PHP ZipArchive eklentisi mevcut değil."
+
+msgid "Extraction failed. Backup kept at: "
+msgstr "Çıkartma başarısız. Yedek şurada tutuldu: "
