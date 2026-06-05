@@ -3,6 +3,13 @@
 Bu projedeki önemli değişiklikler bu dosyada belgelenir.
 Sürümleme [Semantic Versioning](https://semver.org/lang/tr/) yaklaşımını izler.
 
+## [1.4.7] - 2026-06-05
+
+### Düzeltildi
+- **Ayarlar varlık türü seçimleri:** Seçili chip'ler artık işaretsiz olanlarla
+  aynı buton görünümünde kalır; seçili durum yalnızca checkbox içindeki check
+  işaretiyle gösterilir.
+
 ## [1.4.6] - 2026-06-05
 
 ### Düzeltildi

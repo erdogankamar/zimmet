@@ -705,13 +705,6 @@
 .zimmet-check i { font-size: 1rem; color: var(--z-muted); transition: color .15s; }
 .zimmet-check:hover { border-color: var(--z-accent); }
 .zimmet-check input { width: 16px; height: 16px; accent-color: var(--z-navy); margin: 0; }
-.zimmet-check:has(input:checked) {
-    border-color: var(--z-navy);
-    background: #eef3fb;
-    color: var(--z-navy);
-    box-shadow: 0 0 0 1px var(--z-navy) inset;
-}
-.zimmet-check:has(input:checked) i { color: var(--z-navy); }
 
 .zimmet-config-foot {
     display: flex; justify-content: flex-end;
