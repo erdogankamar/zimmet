@@ -3,6 +3,17 @@
 Bu projedeki önemli değişiklikler bu dosyada belgelenir.
 Sürümleme [Semantic Versioning](https://semver.org/lang/tr/) yaklaşımını izler.
 
+## [1.4.6] - 2026-06-05
+
+### Düzeltildi
+- **Güncelleme sonrası Ayarlar sayfasında boş ekran (gerçek kök neden).** Anlık
+  geçişte `glob + require_once` ile tüm sınıfları kör yükleme, bazı sunucularda
+  zaten autoload edilmiş bir sınıfı yeniden tanımlamaya çalışıp ölümcül hata
+  veriyordu; hata yakalayıcı da bu yüklemeden sonra kaydedildiğinden ekran boş
+  kalıyordu. Artık: (1) hata yakalayıcı en başta kaydedilir ve çıktı tamponlarını
+  temizleyip okunur mesaj basar, (2) sınıflar yalnızca tanımlı değillerse,
+  hedefli ve `class_exists` korumalı yüklenir (yeniden tanımlama imkânsız).
+
 ## [1.4.5] - 2026-06-05
 
 ### Değişti
@@ -131,6 +142,7 @@ Sürümleme [Semantic Versioning](https://semver.org/lang/tr/) yaklaşımını i
 - İlk yayın temeli: ISO 27001 uyumlu Zimmet Teslim ve Teslim-Tesellüm tutanağı
   üretimi, tekil/toplu üretim, kurum bazlı şablon, arşivleme ve denetim izi.
 
+[1.4.6]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.6
 [1.4.5]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.5
 [1.4.4]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.4
 [1.4.3]: https://github.com/erdogankamar/zimmet/releases/tag/v1.4.3

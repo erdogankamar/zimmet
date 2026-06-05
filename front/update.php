@@ -17,12 +17,13 @@
 
 include('../../../inc/includes.php');
 
-// Güncelleme sonrası eklenti sınıfları otomatik yüklenmemiş olabilir
+// Güncelleme sonrası eklenti sınıfları otomatik yüklenmemiş olabilir;
+// gerekli sınıfı YALNIZCA tanımlı değilse yükle (yeniden tanımlamayı önler)
 if (!defined('PLUGIN_ZIMMET_VERSION') && is_file(__DIR__ . '/../setup.php')) {
     include_once __DIR__ . '/../setup.php';
 }
-foreach (glob(__DIR__ . '/../inc/*.class.php') ?: [] as $zimmetClassFile) {
-    require_once $zimmetClassFile;
+if (!class_exists('PluginZimmetUpdate') && is_file(__DIR__ . '/../inc/update.class.php')) {
+    require_once __DIR__ . '/../inc/update.class.php';
 }
 
 $configUrl = '/plugins/zimmet/front/config.php';

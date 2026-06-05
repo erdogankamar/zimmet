@@ -15,36 +15,46 @@ include('../../../inc/includes.php');
 // -------------------------------------------------------------------------
 // Güncelleme sonrası boş (beyaz) sayfa koruması
 // -------------------------------------------------------------------------
-// Güncelleme uygulandıktan hemen sonra dosya sürümü ile veritabanı sürümü
-// arasındaki anlık geçiş + OPcache nedeniyle GLPI eklentiyi kısa süre
-// "yüklenmedi" sayıp sınıfları otomatik yüklemeyebilir. Bu sayfa güncelleme
-// merkezini de barındırdığından, sabit ve sınıfları doğrudan yükleyerek her
-// durumda render edilmesini garanti ediyoruz.
-if (!defined('PLUGIN_ZIMMET_VERSION') && is_file(__DIR__ . '/../setup.php')) {
-    include_once __DIR__ . '/../setup.php';
-}
-foreach (glob(__DIR__ . '/../inc/*.class.php') ?: [] as $zimmetClassFile) {
-    require_once $zimmetClassFile;
-}
-
-// Ölümcül hatada boş sayfa yerine okunur mesaj (yalnızca config yetkililerine açık)
+// 1) Ölümcül hatada boş sayfa yerine okunur mesaj göster. Sınıf yüklemeden
+//    ÖNCE kaydedilir ki yükleme sırasında oluşacak hata da yakalansın.
 register_shutdown_function(static function () {
     $e = error_get_last();
     if ($e && in_array($e['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR], true)) {
+        while (ob_get_level() > 0) {
+            @ob_end_clean();
+        }
         if (!headers_sent()) {
             header('Content-Type: text/html; charset=UTF-8', true, 500);
         }
         echo "<div style='font-family:Arial,sans-serif;max-width:760px;margin:40px auto;"
             . "padding:20px 24px;border:1px solid #e3b7b7;border-radius:10px;background:#fff6f6;color:#7a1f1f'>"
             . "<h2 style='margin:0 0 8px'>Ayarlar sayfası yüklenemedi</h2>"
-            . "<p>İşlem büyük olasılıkla tamamlandı ancak sayfa render edilirken bir hata oluştu. "
-            . "Birkaç saniye bekleyip sayfayı yenileyin; sorun sürerse aşağıdaki teknik detayı paylaşın.</p>"
+            . "<p>Birkaç saniye bekleyip sayfayı yenileyin; sorun sürerse aşağıdaki teknik detayı paylaşın.</p>"
             . "<pre style='white-space:pre-wrap;background:#fff;border:1px solid #eee;border-radius:6px;"
             . "padding:10px;font-size:12px;color:#444'>"
             . htmlspecialchars($e['message'] . "\n" . ($e['file'] ?? '') . ':' . ($e['line'] ?? ''), ENT_QUOTES, 'UTF-8')
             . "</pre></div>";
     }
 });
+
+// 2) Güncelleme sonrası anlık geçişte GLPI eklenti sınıflarını otomatik
+//    yüklemeyebilir. Gereken sınıfları YALNIZCA tanımlı değillerse yükle
+//    (kör glob+require yeniden tanımlama hatasına yol açabiliyordu).
+if (!defined('PLUGIN_ZIMMET_VERSION') && is_file(__DIR__ . '/../setup.php')) {
+    include_once __DIR__ . '/../setup.php';
+}
+foreach ([
+    'PluginZimmetConfig' => 'config.class.php',
+    'PluginZimmetMenu'   => 'menu.class.php',
+    'PluginZimmetUpdate' => 'update.class.php',
+] as $zClass => $zFile) {
+    if (!class_exists($zClass)) {
+        $zPath = __DIR__ . '/../inc/' . $zFile;
+        if (is_file($zPath)) {
+            require_once $zPath;
+        }
+    }
+}
 
 Session::checkRight('plugin_zimmet_config', UPDATE);
 
